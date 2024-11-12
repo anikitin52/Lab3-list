@@ -73,4 +73,26 @@ TEST(TList, can_get_size) {
 	ASSERT_EQ(lst.size(), 5);
 }
 
+// Task 4
 
+TEST(TList, task4_odd) {
+	TList<int> lst(5);
+	lst[0] = 0;
+	lst[1] = 1;
+	lst[2] = 2;
+	lst[3] = 3;
+	lst[4] = 4;
+	int* list = lst.midle_element();
+	int n = list[0];
+	ASSERT_EQ(list[0], 1);
+}
+TEST(TList, task4_even) {
+	TList<int> lst(4);
+	lst[0] = 0;
+	lst[1] = 1;
+	lst[2] = 2;
+	lst[3] = 3;
+	int* list = lst.midle_element();
+	ASSERT_EQ(list[0], 1);
+	ASSERT_EQ(list[1], 2);
+}

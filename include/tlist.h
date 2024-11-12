@@ -168,6 +168,39 @@ public:
         return size;
     }
 
+    /*
+  Task 4
+  Find the middle item in the list in one pass.
+  If the number of items in the list is even, find the two middle items.
+  Time: O(n), 1 pass
+  Memory: O(1)
+  */
+
+    T* midle_element() {
+        Node* current = first;
+        Node* current2 = first;
+
+        if (this->size() % 2 != 0) {
+            while (current->next != nullptr) {
+                current = current->next;
+                current = current->next;
+                current2 = current2->next;
+            }
+            T res[1] = { current2->data };
+            return res;
+        }
+        else {
+            while (current->next->next != nullptr) {
+                current = current->next;
+                current = current->next;
+                current2 = current2->next;
+            }
+            T res[2] = { current2->data, current2->next->data };
+            return res;
+        }
+
+    }
+
     void print();
 	
     class iterator {
