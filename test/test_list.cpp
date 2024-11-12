@@ -84,7 +84,7 @@ TEST(TList, task4_odd) {
 	lst[4] = 4;
 	int* list = lst.midle_element();
 	int n = list[0];
-	ASSERT_EQ(list[0], 1);
+	ASSERT_EQ(n, 2);
 }
 TEST(TList, task4_even) {
 	TList<int> lst(4);
