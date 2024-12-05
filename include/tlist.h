@@ -219,6 +219,10 @@ public:
         }
     };
 
+    T& operator*() {
+        return cur->data;
+    }
+
     iterator begin() {
         return iterator(first);
     }
