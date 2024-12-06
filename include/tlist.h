@@ -179,26 +179,21 @@ public:
     T* midle_element() {
         Node* current = first;
         Node* current2 = first;
-
-        if (this->size() % 2 != 0) {
-            while (current->next != nullptr) {
-                current = current->next;
-                current = current->next;
-                current2 = current2->next;
-            }
-            T res[1] = { current2->data };
+        if (current->next == nullptr) {
+            T res[1] = { current->data };
             return res;
         }
-        else {
-            while (current->next->next != nullptr) {
-                current = current->next;
-                current = current->next;
-                current2 = current2->next;
-            }
-            T res[2] = { current2->data, current2->next->data };
+        if (current->next->next == nullptr) {
+            T res[2] = { current->data, current->next->data };
             return res;
         }
-
+        while (current->next != nullptr && current->next->next != nullptr) {
+            current = current->next;
+            current = current->next;
+            current2 = current2->next;
+        }
+        T res[2] = { current2->data, current2->next->data };
+        return res;
     }
 
     void print();
@@ -223,6 +218,10 @@ public:
             return it1.cur != it2.cur;
         }
     };
+
+    T& operator*() {
+        return cur->data;
+    }
 
     iterator begin() {
         return iterator(first);
