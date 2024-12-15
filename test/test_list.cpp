@@ -96,3 +96,13 @@ TEST(TList, task4_even) {
 	ASSERT_EQ(list[0], 1);
 	ASSERT_EQ(list[1], 2);
 }
+
+TEST(iterator, DereferenceOperator) {
+	TList<int> list(3, 100);
+	auto it = list.begin();
+	ASSERT_EQ(*it, 100);
+	++it;
+	ASSERT_EQ(*it, 100);
+	++it;
+	ASSERT_EQ(*it, 100);
+}
