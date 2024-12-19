@@ -200,6 +200,7 @@ public:
 	
     class iterator {
         Node* cur;
+        friend TList;
         explicit iterator(Node* node) : cur(node) {}
     public:
         iterator& operator++() {
@@ -211,17 +212,17 @@ public:
             cur = cur->next;
             return copy;
         }
+        T& operator*() {
+            return cur->data;
+        }
         T* operator->() {
             return &(cur->data);
         }
         friend bool operator!=(const iterator it1, const iterator it2) {
             return it1.cur != it2.cur;
         }
-    };
 
-    T& operator*() {
-        return cur->data;
-    }
+    };
 
     iterator begin() {
         return iterator(first);
